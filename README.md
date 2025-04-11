@@ -39,7 +39,7 @@ The project follows Clean Architecture and Domain-Driven Design principles:
 1. Clone the repository
 
    ```
-   git clone https://github.com/yourusername/BiddingManagementSystem.git
+   git clone https://github.com/jacklusy/TenderManagementSystem.git
    ```
 
 2. Navigate to the project directory
