@@ -36,32 +36,43 @@ namespace BiddingManagementSystem.API.Middlewares
         {
             var statusCode = HttpStatusCode.InternalServerError; // 500 if unexpected
             var message = "An unexpected error occurred.";
+            var detail = exception.Message;
             
             // Customize response based on exception type
             switch (exception)
             {
+                case InvalidOperationException ioe when ioe.Message.Contains("No service for type"):
+                    message = "A required service handler was not found. This is likely a configuration issue.";
+                    detail = "Please ensure all handlers are properly registered: " + ioe.Message;
+                   // _logger.LogCritical(ioe, "Missing dependency: {Error}", ioe.Message);
+                    break;
                 case InvalidEmailException:
                 case InvalidMoneyAmountException:
                 case InvalidMoneyCurrencyException:
                     statusCode = HttpStatusCode.BadRequest;
-                    message = exception.Message;
+                    message = "Invalid input data.";
+                    detail = exception.Message;
                     break;
                 case InvalidTenderDateException:
                 case InvalidTenderOperationException:
                     statusCode = HttpStatusCode.BadRequest;
-                    message = exception.Message;
+                    message = "Invalid tender operation.";
+                    detail = exception.Message;
                     break;
                 case DuplicateTenderReferenceException:
                     statusCode = HttpStatusCode.Conflict; // 409 Conflict
-                    message = exception.Message;
+                    message = "A duplicate tender reference was detected.";
+                    detail = exception.Message;
                     break;
                 case KeyNotFoundException:
                     statusCode = HttpStatusCode.NotFound;
                     message = "The requested resource was not found.";
+                    detail = exception.Message;
                     break;
                 case UnauthorizedAccessException:
                     statusCode = HttpStatusCode.Unauthorized;
                     message = "You are not authorized to perform this action.";
+                    detail = exception.Message;
                     break;
                 // Add more exception types as needed
             }
@@ -72,6 +83,7 @@ namespace BiddingManagementSystem.API.Middlewares
             var result = JsonSerializer.Serialize(new 
             { 
                 error = message,
+                detail = detail,
                 statusCode = (int)statusCode
             });
             

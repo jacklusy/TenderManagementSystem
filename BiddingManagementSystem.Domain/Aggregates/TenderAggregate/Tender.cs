@@ -182,5 +182,32 @@ namespace BiddingManagementSystem.Domain.Aggregates.TenderAggregate
             Status = TenderStatus.Draft;
             SetUpdatedBy(CreatedBy);
         }
+        
+        public void UpdateDetails(
+            string title,
+            string description,
+            DateTime closingDate,
+            string category,
+            Money budgetRange,
+            string contactEmail)
+        {
+            if (Status != TenderStatus.Draft)
+                throw new InvalidTenderOperationException("Only draft tenders can be updated");
+                
+            if (string.IsNullOrWhiteSpace(title))
+                throw new ArgumentException("Title cannot be empty", nameof(title));
+                
+            if (closingDate <= DateTime.UtcNow)
+                throw new InvalidTenderDateException("Closing date must be in the future");
+                
+            Title = title;
+            Description = description;
+            ClosingDate = closingDate;
+            Category = category;
+            BudgetRange = budgetRange;
+            ContactEmail = contactEmail;
+            
+            SetUpdatedBy(UpdatedBy);
+        }
     }
 }
