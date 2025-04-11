@@ -37,9 +37,10 @@ namespace BiddingManagementSystem.Domain.Aggregates.BidAggregate
             BidAmount = bidAmount;
             TechnicalProposalSummary = technicalProposalSummary;
             Status = BidStatus.Draft;
+            EvaluationComments = string.Empty; // Initialize to avoid DB NULL constraint
         }
         
-        public void AddBidItem(string description, int quantity, Money unitPrice)
+        public BidItem AddBidItem(string description, int quantity, Money unitPrice)
         {
             var bidItem = new BidItem(description, quantity, unitPrice);
             _bidItems.Add(bidItem);
@@ -48,6 +49,14 @@ namespace BiddingManagementSystem.Domain.Aggregates.BidAggregate
             BidAmount = new Money(
                 _bidItems.Sum(item => item.TotalPrice.Amount),
                 _bidItems.First().TotalPrice.Currency);
+                
+            return bidItem;
+        }
+        
+        // Initialize the evaluation comments to avoid NULL constraint issues
+        public void InitializeEvaluation(string comments)
+        {
+            EvaluationComments = comments ?? string.Empty;
         }
         
         public void AddDocument(string name, string fileUrl, string documentType, string fileType, long fileSize)
@@ -96,7 +105,7 @@ namespace BiddingManagementSystem.Domain.Aggregates.BidAggregate
                 throw new ArgumentOutOfRangeException(nameof(score), "Score must be between 0 and 100");
                 
             Score = score;
-            EvaluationComments = comments;
+            EvaluationComments = comments ?? string.Empty;
             SetUpdatedBy(UpdatedBy);
         }
         
@@ -115,7 +124,7 @@ namespace BiddingManagementSystem.Domain.Aggregates.BidAggregate
                 throw new InvalidOperationException("Only bids under evaluation can be rejected");
                 
             Status = BidStatus.Rejected;
-            EvaluationComments = reason;
+            EvaluationComments = reason ?? string.Empty;
             SetUpdatedBy(UpdatedBy);
         }
         

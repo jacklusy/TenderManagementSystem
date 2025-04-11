@@ -22,6 +22,8 @@ using Microsoft.AspNetCore.Identity;
 using BiddingManagementSystem.Infrastructure.Authentication;
 using BiddingManagementSystem.Infrastructure.Data.UnitOfWork;
 using BiddingManagementSystem.API.Middlewares;
+using BiddingManagementSystem.Application.Behaviors;
+using FluentValidation;
 
 namespace BiddingManagementSystem.API
 {
@@ -91,7 +93,14 @@ namespace BiddingManagementSystem.API
             builder.Services.Configure<JwtSettings>(builder.Configuration.GetSection("JwtSettings"));
 
             // Add MediatR
-            builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(typeof(MappingProfile).Assembly));
+            builder.Services.AddMediatR(cfg => {
+                cfg.RegisterServicesFromAssembly(typeof(MappingProfile).Assembly);
+                // Add ValidationBehavior to the pipeline
+                cfg.AddBehavior(typeof(IPipelineBehavior<,>), typeof(ValidationBehavior<,>));
+            });
+            
+            // Register all validators from Application assembly
+            builder.Services.AddValidatorsFromAssembly(typeof(MappingProfile).Assembly);
 
             // Add AutoMapper
             builder.Services.AddAutoMapper(typeof(MappingProfile));
