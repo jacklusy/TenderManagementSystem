@@ -100,7 +100,11 @@ namespace BiddingManagementSystem.Domain.Aggregates.UserAggregate
         
         public bool HasValidRefreshToken(string token)
         {
+            if (string.IsNullOrEmpty(token) || _refreshTokens == null)
+                return false;
+                
             return _refreshTokens.Exists(t => 
+                t != null &&
                 t.Token == token && 
                 t.ExpiryDate > DateTime.UtcNow && 
                 !t.IsRevoked);
@@ -108,7 +112,10 @@ namespace BiddingManagementSystem.Domain.Aggregates.UserAggregate
         
         public void RevokeRefreshToken(string token)
         {
-            var refreshToken = _refreshTokens.Find(t => t.Token == token);
+            if (string.IsNullOrEmpty(token) || _refreshTokens == null)
+                return;
+                
+            var refreshToken = _refreshTokens.Find(t => t != null && t.Token == token);
             if (refreshToken != null)
             {
                 refreshToken.Revoke();

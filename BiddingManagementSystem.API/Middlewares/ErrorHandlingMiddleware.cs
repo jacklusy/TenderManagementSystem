@@ -51,6 +51,10 @@ namespace BiddingManagementSystem.API.Middlewares
                     statusCode = HttpStatusCode.BadRequest;
                     message = exception.Message;
                     break;
+                case DuplicateTenderReferenceException:
+                    statusCode = HttpStatusCode.Conflict; // 409 Conflict
+                    message = exception.Message;
+                    break;
                 case KeyNotFoundException:
                     statusCode = HttpStatusCode.NotFound;
                     message = "The requested resource was not found.";

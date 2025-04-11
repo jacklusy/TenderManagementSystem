@@ -21,6 +21,7 @@ using BiddingManagementSystem.Domain.Aggregates.UserAggregate;
 using Microsoft.AspNetCore.Identity;
 using BiddingManagementSystem.Infrastructure.Authentication;
 using BiddingManagementSystem.Infrastructure.Data.UnitOfWork;
+using BiddingManagementSystem.API.Middlewares;
 
 namespace BiddingManagementSystem.API
 {
@@ -142,6 +143,9 @@ namespace BiddingManagementSystem.API
             {
                 app.UseDeveloperExceptionPage();
             }
+
+            // Use custom error handling middleware
+            app.UseMiddleware<ErrorHandlingMiddleware>();
 
             // Always use Swagger in any environment for now (can be restricted to Development later)
             app.UseSwagger();

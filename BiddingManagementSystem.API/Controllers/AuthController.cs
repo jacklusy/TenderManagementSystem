@@ -1,9 +1,11 @@
+using System;
 using System.Threading.Tasks;
 using BiddingManagementSystem.Application.DTOs.Auth;
 using BiddingManagementSystem.Application.Features.Auth.Commands;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
 
 namespace BiddingManagementSystem.API.Controllers
 {
@@ -12,42 +14,93 @@ namespace BiddingManagementSystem.API.Controllers
     public class AuthController : ControllerBase
     {
         private readonly IMediator _mediator;
+        private readonly ILogger<AuthController> _logger;
 
-        public AuthController(IMediator mediator)
+        public AuthController(IMediator mediator, ILogger<AuthController> logger)
         {
             _mediator = mediator;
+            _logger = logger;
         }
 
         [HttpPost("register")]
         public async Task<ActionResult<AuthResponseDto>> Register([FromBody] RegisterUserDto registerDto)
         {
-            var command = new RegisterCommand { RegisterUserDto = registerDto };
-            var result = await _mediator.Send(command);
-            return Ok(result);
+            try
+            {
+                _logger.LogInformation("Register attempt for username: {Username}, email: {Email}", 
+                    registerDto.Username, registerDto.Email);
+                    
+                var command = new RegisterCommand { RegisterUserDto = registerDto };
+                var result = await _mediator.Send(command);
+                
+                _logger.LogInformation("Registration successful for user: {UserId}", result.UserId);
+                return Ok(result);
+            }
+            catch (ArgumentException ex)
+            {
+                _logger.LogWarning("Registration validation error: {Message}", ex.Message);
+                return BadRequest(new { error = ex.Message });
+            }
+            catch (InvalidOperationException ex)
+            {
+                _logger.LogError(ex, "Registration operation error");
+                return StatusCode(500, new { error = ex.Message });
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Unexpected error during registration");
+                return StatusCode(500, new { error = "An unexpected error occurred: " + ex.Message });
+            }
         }
 
         [HttpPost("login")]
         public async Task<ActionResult<AuthResponseDto>> Login([FromBody] LoginDto loginDto)
         {
-            var command = new LoginCommand 
-            { 
-                Username = loginDto.Username, 
-                Password = loginDto.Password 
-            };
-            var result = await _mediator.Send(command);
-            return Ok(result);
+            try
+            {
+                var command = new LoginCommand 
+                { 
+                    Username = loginDto.Username, 
+                    Password = loginDto.Password 
+                };
+                var result = await _mediator.Send(command);
+                return Ok(result);
+            }
+            catch (UnauthorizedAccessException ex)
+            {
+                return Unauthorized(new { error = ex.Message });
+            }
+            catch (InvalidOperationException ex)
+            {
+                return StatusCode(500, new { error = ex.Message });
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new { error = "An unexpected error occurred: " + ex.Message });
+            }
         }
 
         [HttpPost("refresh-token")]
         public async Task<ActionResult<AuthResponseDto>> RefreshToken([FromBody] RefreshTokenDto refreshTokenDto)
         {
-            var command = new RefreshTokenCommand
+            try
             {
-                AccessToken = refreshTokenDto.AccessToken,
-                RefreshToken = refreshTokenDto.RefreshToken
-            };
-            var result = await _mediator.Send(command);
-            return Ok(result);
+                var command = new RefreshTokenCommand
+                {
+                    AccessToken = refreshTokenDto.AccessToken,
+                    RefreshToken = refreshTokenDto.RefreshToken
+                };
+                var result = await _mediator.Send(command);
+                return Ok(result);
+            }
+            catch (UnauthorizedAccessException ex)
+            {
+                return Unauthorized(new { error = ex.Message });
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new { error = "An error occurred while refreshing the token" });
+            }
         }
 
         [Authorize]

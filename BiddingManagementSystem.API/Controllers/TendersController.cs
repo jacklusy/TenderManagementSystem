@@ -57,13 +57,13 @@ namespace BiddingManagementSystem.API.Controllers
             return Ok(result);
         }
 
-        [Authorize(Roles = "Admin,ProcurementOfficer")]
+        [Authorize(Roles = "Admin,Procurement")]
         [HttpPost]
         public async Task<ActionResult<TenderDto>> CreateTender([FromBody] CreateTenderDto createTenderDto)
         {
             var command = new CreateTenderCommand { TenderDto = createTenderDto };
             var result = await _mediator.Send(command);
-            return CreatedAtAction(nameof(GetTenderById), new { id = result.Id }, result);
+            return Ok(result);
         }
 
         [Authorize(Roles = "Admin,ProcurementOfficer")]

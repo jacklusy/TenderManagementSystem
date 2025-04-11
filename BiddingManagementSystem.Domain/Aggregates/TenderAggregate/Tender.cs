@@ -176,5 +176,11 @@ namespace BiddingManagementSystem.Domain.Aggregates.TenderAggregate
             Status = TenderStatus.Cancelled;
             SetUpdatedBy(UpdatedBy);
         }
+        
+        public void SetInitialStatus()
+        {
+            Status = TenderStatus.Draft;
+            SetUpdatedBy(CreatedBy);
+        }
     }
 }
