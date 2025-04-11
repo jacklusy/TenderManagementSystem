@@ -1,9 +1,3 @@
-C:\Users\Jack\source\repos\sky\BiddingManagementSystem\BiddingManagementSystem.Infrastructure\obj\Debug\net8.0\BiddingManagementSystem.Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\Jack\source\repos\sky\BiddingManagementSystem\BiddingManagementSystem.Infrastructure\obj\Debug\net8.0\BiddingManagementSystem.Infrastructure.AssemblyInfoInputs.cache
-C:\Users\Jack\source\repos\sky\BiddingManagementSystem\BiddingManagementSystem.Infrastructure\obj\Debug\net8.0\BiddingManagementSystem.Infrastructure.AssemblyInfo.cs
-C:\Users\Jack\source\repos\sky\BiddingManagementSystem\BiddingManagementSystem.Infrastructure\obj\Debug\net8.0\BiddingManagementSystem.Infrastructure.csproj.CoreCompileInputs.cache
-C:\Users\Jack\source\repos\sky\BiddingManagementSystem\BiddingManagementSystem.Infrastructure\obj\Debug\net8.0\BiddingManagementSystem.Infrastructure.sourcelink.json
-C:\Users\Jack\source\repos\sky\BiddingManagementSystem\BiddingManagementSystem.Infrastructure\obj\Debug\net8.0\BiddingManagementSystem.Infrastructure.csproj.AssemblyReference.cache
 C:\Users\Jack\source\repos\sky\BiddingManagementSystem\BiddingManagementSystem.Infrastructure\bin\Debug\net8.0\BiddingManagementSystem.Infrastructure.deps.json
 C:\Users\Jack\source\repos\sky\BiddingManagementSystem\BiddingManagementSystem.Infrastructure\bin\Debug\net8.0\BiddingManagementSystem.Infrastructure.runtimeconfig.json
 C:\Users\Jack\source\repos\sky\BiddingManagementSystem\BiddingManagementSystem.Infrastructure\bin\Debug\net8.0\BiddingManagementSystem.Infrastructure.dll
@@ -12,6 +6,12 @@ C:\Users\Jack\source\repos\sky\BiddingManagementSystem\BiddingManagementSystem.I
 C:\Users\Jack\source\repos\sky\BiddingManagementSystem\BiddingManagementSystem.Infrastructure\bin\Debug\net8.0\BiddingManagementSystem.Domain.dll
 C:\Users\Jack\source\repos\sky\BiddingManagementSystem\BiddingManagementSystem.Infrastructure\bin\Debug\net8.0\BiddingManagementSystem.Domain.pdb
 C:\Users\Jack\source\repos\sky\BiddingManagementSystem\BiddingManagementSystem.Infrastructure\bin\Debug\net8.0\BiddingManagementSystem.Application.pdb
+C:\Users\Jack\source\repos\sky\BiddingManagementSystem\BiddingManagementSystem.Infrastructure\obj\Debug\net8.0\BiddingManagementSystem.Infrastructure.csproj.AssemblyReference.cache
+C:\Users\Jack\source\repos\sky\BiddingManagementSystem\BiddingManagementSystem.Infrastructure\obj\Debug\net8.0\BiddingManagementSystem.Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Jack\source\repos\sky\BiddingManagementSystem\BiddingManagementSystem.Infrastructure\obj\Debug\net8.0\BiddingManagementSystem.Infrastructure.AssemblyInfoInputs.cache
+C:\Users\Jack\source\repos\sky\BiddingManagementSystem\BiddingManagementSystem.Infrastructure\obj\Debug\net8.0\BiddingManagementSystem.Infrastructure.AssemblyInfo.cs
+C:\Users\Jack\source\repos\sky\BiddingManagementSystem\BiddingManagementSystem.Infrastructure\obj\Debug\net8.0\BiddingManagementSystem.Infrastructure.csproj.CoreCompileInputs.cache
+C:\Users\Jack\source\repos\sky\BiddingManagementSystem\BiddingManagementSystem.Infrastructure\obj\Debug\net8.0\BiddingManagementSystem.Infrastructure.sourcelink.json
 C:\Users\Jack\source\repos\sky\BiddingManagementSystem\BiddingManagementSystem.Infrastructure\obj\Debug\net8.0\BiddingM.6703687E.Up2Date
 C:\Users\Jack\source\repos\sky\BiddingManagementSystem\BiddingManagementSystem.Infrastructure\obj\Debug\net8.0\BiddingManagementSystem.Infrastructure.dll
 C:\Users\Jack\source\repos\sky\BiddingManagementSystem\BiddingManagementSystem.Infrastructure\obj\Debug\net8.0\refint\BiddingManagementSystem.Infrastructure.dll

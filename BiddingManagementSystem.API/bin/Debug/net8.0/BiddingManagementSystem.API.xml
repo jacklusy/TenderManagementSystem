@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>BiddingManagementSystem.API</name>
+    </assembly>
+    <members>
+        <member name="M:BiddingManagementSystem.API.Controllers.HomeController.Index">
+            <summary>
+            Get API status and information
+            </summary>
+            <returns>API status information</returns>
+        </member>
+    </members>
+</doc>

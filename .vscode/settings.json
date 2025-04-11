@@ -1,0 +1,12 @@
+{
+    "dotnet.defaultSolution": "BiddingManagementSystem.sln",
+    "omnisharp.defaultLaunchSolution": "BiddingManagementSystem.sln",
+    "omnisharp.enableEditorConfigSupport": true,
+    "omnisharp.enableRoslynAnalyzers": true,
+    "dotnetAcquisitionExtension.existingDotnetPath": [
+        {
+            "extensionId": "ms-dotnettools.csharp",
+            "path": "dotnet"
+        }
+    ]
+}
