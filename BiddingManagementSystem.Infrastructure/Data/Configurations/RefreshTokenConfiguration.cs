@@ -21,6 +21,10 @@ namespace BiddingManagementSystem.Infrastructure.Data.Configurations
                 
             builder.Property(t => t.IsRevoked)
                 .IsRequired();
+                
+            // Make UpdatedBy nullable since it might not be set when creating a token
+            builder.Property(t => t.UpdatedBy)
+                .IsRequired(false);
         }
     }
 }

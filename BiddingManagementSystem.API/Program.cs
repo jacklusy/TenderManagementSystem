@@ -86,6 +86,9 @@ namespace BiddingManagementSystem.API
             builder.Services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlServer(connectionString));
 
+            // Configure JwtSettings
+            builder.Services.Configure<JwtSettings>(builder.Configuration.GetSection("JwtSettings"));
+
             // Add MediatR
             builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(typeof(MappingProfile).Assembly));
 
@@ -113,9 +116,12 @@ namespace BiddingManagementSystem.API
                     {
                         ValidateIssuerSigningKey = true,
                         IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(
-                            builder.Configuration["AppSettings:Token"] ?? "DefaultSecretKeyForDevelopment12345")),
-                        ValidateIssuer = false,
-                        ValidateAudience = false
+                            builder.Configuration["JwtSettings:Secret"])),
+                        ValidateIssuer = true,
+                        ValidIssuer = builder.Configuration["JwtSettings:Issuer"],
+                        ValidateAudience = true,
+                        ValidAudience = builder.Configuration["JwtSettings:Audience"],
+                        ValidateLifetime = true
                     };
                 });
 

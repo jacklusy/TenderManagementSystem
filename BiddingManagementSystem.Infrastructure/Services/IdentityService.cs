@@ -63,17 +63,28 @@ namespace BiddingManagementSystem.Infrastructure.Services
                 user.SetCompanyDetails(registerDto.CompanyName, registerDto.RegistrationNumber, address);
             }
 
-            await _unitOfWork.Users.AddAsync(user);
-            await _unitOfWork.SaveChangesAsync();
-
             // Generate JWT token
             var accessToken = _jwtTokenGenerator.GenerateAccessToken(user);
             var refreshToken = _jwtTokenGenerator.GenerateRefreshToken();
             var refreshTokenExpiryDate = _jwtTokenGenerator.GetRefreshTokenExpiryDate();
 
-            // Add refresh token to user
+            // Add refresh token to user before saving to database
             user.AddRefreshToken(refreshToken, refreshTokenExpiryDate);
-            await _unitOfWork.SaveChangesAsync();
+
+            // Add user to repository and save all changes in one transaction
+            await _unitOfWork.BeginTransactionAsync();
+            try
+            {
+                await _unitOfWork.Users.AddAsync(user);
+                await _unitOfWork.SaveChangesAsync();
+                await _unitOfWork.CommitTransactionAsync();
+            }
+            catch (Exception ex)
+            {
+                await _unitOfWork.RollbackTransactionAsync();
+                _logger.LogError(ex, "Error registering user {Username}", registerDto.Username);
+                throw;
+            }
 
             // Return auth response
             var response = _mapper.Map<AuthResponseDto>(user);
@@ -116,7 +127,20 @@ namespace BiddingManagementSystem.Infrastructure.Services
 
             // Add refresh token to user
             user.AddRefreshToken(refreshToken, refreshTokenExpiryDate);
-            await _unitOfWork.SaveChangesAsync();
+            
+            // Save all changes in a transaction
+            await _unitOfWork.BeginTransactionAsync();
+            try
+            {
+                await _unitOfWork.SaveChangesAsync();
+                await _unitOfWork.CommitTransactionAsync();
+            }
+            catch (Exception ex)
+            {
+                await _unitOfWork.RollbackTransactionAsync();
+                _logger.LogError(ex, "Error logging in user {Username}", loginDto.Username);
+                throw;
+            }
 
             // Return auth response
             var response = _mapper.Map<AuthResponseDto>(user);
@@ -141,7 +165,20 @@ namespace BiddingManagementSystem.Infrastructure.Services
 
             // Add new refresh token to user
             user.AddRefreshToken(refreshToken, refreshTokenExpiryDate);
-            await _unitOfWork.SaveChangesAsync();
+            
+            // Save all changes in a transaction
+            await _unitOfWork.BeginTransactionAsync();
+            try
+            {
+                await _unitOfWork.SaveChangesAsync();
+                await _unitOfWork.CommitTransactionAsync();
+            }
+            catch (Exception ex)
+            {
+                await _unitOfWork.RollbackTransactionAsync();
+                _logger.LogError(ex, "Error refreshing token for user {UserId}", user.Id);
+                throw;
+            }
 
             // Return auth response
             var response = _mapper.Map<AuthResponseDto>(user);
@@ -155,7 +192,20 @@ namespace BiddingManagementSystem.Infrastructure.Services
         {
             var user = await ValidateRefreshTokenAsync(token);
             user.RevokeRefreshToken(token);
-            await _unitOfWork.SaveChangesAsync();
+            
+            // Save changes in a transaction
+            await _unitOfWork.BeginTransactionAsync();
+            try
+            {
+                await _unitOfWork.SaveChangesAsync();
+                await _unitOfWork.CommitTransactionAsync();
+            }
+            catch (Exception ex)
+            {
+                await _unitOfWork.RollbackTransactionAsync();
+                _logger.LogError(ex, "Error revoking token for user {UserId}", user.Id);
+                throw;
+            }
         }
 
         public async Task<bool> ChangePasswordAsync(string userId, string currentPassword, string newPassword)
@@ -178,9 +228,21 @@ namespace BiddingManagementSystem.Infrastructure.Services
             // Update password
             var newPasswordHash = _passwordHasher.HashPassword(user, newPassword);
             user.UpdatePasswordHash(newPasswordHash);
-            await _unitOfWork.SaveChangesAsync();
-
-            return true;
+            
+            // Save changes in a transaction
+            await _unitOfWork.BeginTransactionAsync();
+            try
+            {
+                await _unitOfWork.SaveChangesAsync();
+                await _unitOfWork.CommitTransactionAsync();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                await _unitOfWork.RollbackTransactionAsync();
+                _logger.LogError(ex, "Error changing password for user {UserId}", userId);
+                throw;
+            }
         }
 
         public async Task<bool> ValidateUserAsync(string username, string password)

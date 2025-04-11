@@ -82,7 +82,13 @@ namespace BiddingManagementSystem.Domain.Aggregates.UserAggregate
         
         public void AddRefreshToken(string token, DateTime expiryDate)
         {
-            _refreshTokens.Add(new RefreshToken(token, expiryDate));
+            var refreshToken = new RefreshToken(token, expiryDate);
+            
+            // Set the CreatedBy and UpdatedBy fields to avoid NULL values
+            refreshToken.SetCreatedBy(Id.ToString());
+            refreshToken.SetUpdatedBy(Id.ToString());
+            
+            _refreshTokens.Add(refreshToken);
             
             // Remove expired tokens
             _refreshTokens.RemoveAll(t => t.ExpiryDate < DateTime.UtcNow);
@@ -106,6 +112,7 @@ namespace BiddingManagementSystem.Domain.Aggregates.UserAggregate
             if (refreshToken != null)
             {
                 refreshToken.Revoke();
+                refreshToken.SetUpdatedBy(Id.ToString());
             }
         }
     }
