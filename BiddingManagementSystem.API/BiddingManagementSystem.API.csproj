@@ -6,4 +6,20 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="FluentValidation.AspNetCore" Version="11.3.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="8.0.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="8.0.0">
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.5.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\BiddingManagementSystem.Application\BiddingManagementSystem.Application.csproj" />
+    <ProjectReference Include="..\BiddingManagementSystem.Domain\BiddingManagementSystem.Domain.csproj" />
+    <ProjectReference Include="..\BiddingManagementSystem.Infrastructure\BiddingManagementSystem.Infrastructure.csproj" />
+  </ItemGroup>
+
 </Project>

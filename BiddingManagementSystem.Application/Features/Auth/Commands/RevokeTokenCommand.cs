@@ -6,7 +6,7 @@ using MediatR;
 
 namespace BiddingManagementSystem.Application.Features.Auth.Commands
 {
-    public class RevokeTokenCommand : IRequest
+    public class RevokeTokenCommand : IRequest<Unit>
     {
         public string Token { get; set; }
     }
@@ -20,7 +20,7 @@ namespace BiddingManagementSystem.Application.Features.Auth.Commands
         }
     }
 
-    public class RevokeTokenCommandHandler : IRequestHandler<RevokeTokenCommand>
+    public class RevokeTokenCommandHandler : IRequestHandler<RevokeTokenCommand, Unit>
     {
         private readonly IIdentityService _identityService;
 

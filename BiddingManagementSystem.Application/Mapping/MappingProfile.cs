@@ -1,4 +1,3 @@
-// Application/Mapping/MappingProfile.cs
 using AutoMapper;
 using BiddingManagementSystem.Application.DTOs;
 using BiddingManagementSystem.Application.DTOs.Auth;
@@ -8,6 +7,7 @@ using BiddingManagementSystem.Domain.Aggregates.BidAggregate;
 using BiddingManagementSystem.Domain.Aggregates.TenderAggregate;
 using BiddingManagementSystem.Domain.Aggregates.UserAggregate;
 using BiddingManagementSystem.Domain.ValueObjects;
+using BiddingManagementSystem.Application.DTOs.Common;
 
 namespace BiddingManagementSystem.Application.Mapping
 {
@@ -95,7 +95,18 @@ namespace BiddingManagementSystem.Application.Mapping
                 .ForMember(dest => dest.Id, opt => opt.Ignore())
                 .ForMember(dest => dest.Score, opt => opt.MapFrom(src => src.Score))
                 .ForMember(dest => dest.EvaluationComments, opt => opt.MapFrom(src => src.Comments))
-                .ForAllOtherMembers(opt => opt.Ignore());
+                .ForMember(dest => dest.TenderId, opt => opt.Ignore())
+                .ForMember(dest => dest.BidderId, opt => opt.Ignore())
+                .ForMember(dest => dest.Status, opt => opt.Ignore())
+                .ForMember(dest => dest.BidAmount, opt => opt.Ignore())
+                .ForMember(dest => dest.SubmissionDate, opt => opt.Ignore())
+                .ForMember(dest => dest.TechnicalProposalSummary, opt => opt.Ignore())
+                .ForMember(dest => dest.Documents, opt => opt.Ignore())
+                .ForMember(dest => dest.BidItems, opt => opt.Ignore())
+                .ForMember(dest => dest.CreatedAt, opt => opt.Ignore())
+                .ForMember(dest => dest.CreatedBy, opt => opt.Ignore())
+                .ForMember(dest => dest.UpdatedAt, opt => opt.Ignore())
+                .ForMember(dest => dest.UpdatedBy, opt => opt.Ignore());
         }
     }
 }

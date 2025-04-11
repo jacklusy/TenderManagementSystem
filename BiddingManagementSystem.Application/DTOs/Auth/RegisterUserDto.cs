@@ -1,4 +1,5 @@
 using BiddingManagementSystem.Domain.Enums;
+using BiddingManagementSystem.Application.DTOs.Common;
 
 namespace BiddingManagementSystem.Application.DTOs.Auth
 {

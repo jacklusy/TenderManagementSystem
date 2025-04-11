@@ -5,6 +5,16 @@ VisualStudioVersion = 17.9.34701.34
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BiddingManagementSystem", "BiddingManagementSystem\BiddingManagementSystem.csproj", "{CDE3955C-544A-411E-9209-A1FE528EBD0D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BiddingManagementSystem.API", "BiddingManagementSystem.API\BiddingManagementSystem.API.csproj", "{D2F2FDA0-1617-4908-810A-9A9E22663AFF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BiddingManagementSystem.Application", "BiddingManagementSystem.Application\BiddingManagementSystem.Application.csproj", "{B3C074C4-9434-43F5-B648-325ACE1EB39B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BiddingManagementSystem.Domain", "BiddingManagementSystem.Domain\BiddingManagementSystem.Domain.csproj", "{8450F3A5-60C2-40CB-97F6-D1BE2A6DA22F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BiddingManagementSystem.Infrastructure", "BiddingManagementSystem.Infrastructure\BiddingManagementSystem.Infrastructure.csproj", "{E2591C46-456A-4DD0-829A-4EFC0B46BB9A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BiddingManagementSystem.Shared", "BiddingManagementSystem.Shared\BiddingManagementSystem.Shared.csproj", "{76B89FE0-D9A3-4E92-8A19-5742C69783BE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +25,26 @@ Global
 		{CDE3955C-544A-411E-9209-A1FE528EBD0D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CDE3955C-544A-411E-9209-A1FE528EBD0D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CDE3955C-544A-411E-9209-A1FE528EBD0D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D2F2FDA0-1617-4908-810A-9A9E22663AFF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D2F2FDA0-1617-4908-810A-9A9E22663AFF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D2F2FDA0-1617-4908-810A-9A9E22663AFF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D2F2FDA0-1617-4908-810A-9A9E22663AFF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B3C074C4-9434-43F5-B648-325ACE1EB39B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B3C074C4-9434-43F5-B648-325ACE1EB39B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B3C074C4-9434-43F5-B648-325ACE1EB39B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B3C074C4-9434-43F5-B648-325ACE1EB39B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8450F3A5-60C2-40CB-97F6-D1BE2A6DA22F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8450F3A5-60C2-40CB-97F6-D1BE2A6DA22F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8450F3A5-60C2-40CB-97F6-D1BE2A6DA22F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8450F3A5-60C2-40CB-97F6-D1BE2A6DA22F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E2591C46-456A-4DD0-829A-4EFC0B46BB9A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E2591C46-456A-4DD0-829A-4EFC0B46BB9A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E2591C46-456A-4DD0-829A-4EFC0B46BB9A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E2591C46-456A-4DD0-829A-4EFC0B46BB9A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{76B89FE0-D9A3-4E92-8A19-5742C69783BE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{76B89FE0-D9A3-4E92-8A19-5742C69783BE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{76B89FE0-D9A3-4E92-8A19-5742C69783BE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{76B89FE0-D9A3-4E92-8A19-5742C69783BE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

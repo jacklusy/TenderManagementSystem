@@ -1,0 +1,16 @@
+C:\Users\Jack\source\repos\sky\BiddingManagementSystem\BiddingManagementSystem.Application\obj\Debug\net8.0\BiddingManagementSystem.Application.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Jack\source\repos\sky\BiddingManagementSystem\BiddingManagementSystem.Application\obj\Debug\net8.0\BiddingManagementSystem.Application.AssemblyInfoInputs.cache
+C:\Users\Jack\source\repos\sky\BiddingManagementSystem\BiddingManagementSystem.Application\obj\Debug\net8.0\BiddingManagementSystem.Application.AssemblyInfo.cs
+C:\Users\Jack\source\repos\sky\BiddingManagementSystem\BiddingManagementSystem.Application\obj\Debug\net8.0\BiddingManagementSystem.Application.csproj.CoreCompileInputs.cache
+C:\Users\Jack\source\repos\sky\BiddingManagementSystem\BiddingManagementSystem.Application\obj\Debug\net8.0\BiddingManagementSystem.Application.sourcelink.json
+C:\Users\Jack\source\repos\sky\BiddingManagementSystem\BiddingManagementSystem.Application\obj\Debug\net8.0\BiddingManagementSystem.Application.csproj.AssemblyReference.cache
+C:\Users\Jack\source\repos\sky\BiddingManagementSystem\BiddingManagementSystem.Application\bin\Debug\net8.0\BiddingManagementSystem.Application.deps.json
+C:\Users\Jack\source\repos\sky\BiddingManagementSystem\BiddingManagementSystem.Application\bin\Debug\net8.0\BiddingManagementSystem.Application.dll
+C:\Users\Jack\source\repos\sky\BiddingManagementSystem\BiddingManagementSystem.Application\bin\Debug\net8.0\BiddingManagementSystem.Application.pdb
+C:\Users\Jack\source\repos\sky\BiddingManagementSystem\BiddingManagementSystem.Application\bin\Debug\net8.0\BiddingManagementSystem.Domain.dll
+C:\Users\Jack\source\repos\sky\BiddingManagementSystem\BiddingManagementSystem.Application\bin\Debug\net8.0\BiddingManagementSystem.Domain.pdb
+C:\Users\Jack\source\repos\sky\BiddingManagementSystem\BiddingManagementSystem.Application\obj\Debug\net8.0\BiddingM.60F0A4AF.Up2Date
+C:\Users\Jack\source\repos\sky\BiddingManagementSystem\BiddingManagementSystem.Application\obj\Debug\net8.0\BiddingManagementSystem.Application.dll
+C:\Users\Jack\source\repos\sky\BiddingManagementSystem\BiddingManagementSystem.Application\obj\Debug\net8.0\refint\BiddingManagementSystem.Application.dll
+C:\Users\Jack\source\repos\sky\BiddingManagementSystem\BiddingManagementSystem.Application\obj\Debug\net8.0\BiddingManagementSystem.Application.pdb
+C:\Users\Jack\source\repos\sky\BiddingManagementSystem\BiddingManagementSystem.Application\obj\Debug\net8.0\ref\BiddingManagementSystem.Application.dll

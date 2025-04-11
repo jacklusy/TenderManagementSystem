@@ -53,7 +53,8 @@ namespace BiddingManagementSystem.Infrastructure.Services
             var user = _mapper.Map<User>(registerDto);
             
             // Hash the password
-            user.PasswordHash = _passwordHasher.HashPassword(user, registerDto.Password);
+            var passwordHash = _passwordHasher.HashPassword(user, registerDto.Password);
+            user.UpdatePasswordHash(passwordHash);
 
             // If role is Bidder, add company details
             if (user.Role == Domain.Enums.UserRole.Bidder && registerDto.CompanyName != null)

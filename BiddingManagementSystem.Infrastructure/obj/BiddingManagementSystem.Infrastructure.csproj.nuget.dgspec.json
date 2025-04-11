@@ -4,14 +4,116 @@
     "C:\\Users\\Jack\\source\\repos\\sky\\BiddingManagementSystem\\BiddingManagementSystem.Infrastructure\\BiddingManagementSystem.Infrastructure.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Jack\\source\\repos\\sky\\BiddingManagementSystem\\BiddingManagementSystem.Infrastructure\\BiddingManagementSystem.Infrastructure.csproj": {
+    "C:\\Users\\Jack\\source\\repos\\sky\\BiddingManagementSystem\\BiddingManagementSystem.Application\\BiddingManagementSystem.Application.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Jack\\source\\repos\\sky\\BiddingManagementSystem\\BiddingManagementSystem.Infrastructure\\BiddingManagementSystem.Infrastructure.csproj",
-        "projectName": "BiddingManagementSystem.Infrastructure",
-        "projectPath": "C:\\Users\\Jack\\source\\repos\\sky\\BiddingManagementSystem\\BiddingManagementSystem.Infrastructure\\BiddingManagementSystem.Infrastructure.csproj",
+        "projectUniqueName": "C:\\Users\\Jack\\source\\repos\\sky\\BiddingManagementSystem\\BiddingManagementSystem.Application\\BiddingManagementSystem.Application.csproj",
+        "projectName": "BiddingManagementSystem.Application",
+        "projectPath": "C:\\Users\\Jack\\source\\repos\\sky\\BiddingManagementSystem\\BiddingManagementSystem.Application\\BiddingManagementSystem.Application.csproj",
         "packagesPath": "C:\\Users\\Jack\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Jack\\source\\repos\\sky\\BiddingManagementSystem\\BiddingManagementSystem.Infrastructure\\obj\\",
+        "outputPath": "C:\\Users\\Jack\\source\\repos\\sky\\BiddingManagementSystem\\BiddingManagementSystem.Application\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\Jack\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0": {
+            "targetAlias": "net8.0",
+            "projectReferences": {
+              "C:\\Users\\Jack\\source\\repos\\sky\\BiddingManagementSystem\\BiddingManagementSystem.Domain\\BiddingManagementSystem.Domain.csproj": {
+                "projectPath": "C:\\Users\\Jack\\source\\repos\\sky\\BiddingManagementSystem\\BiddingManagementSystem.Domain\\BiddingManagementSystem.Domain.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        }
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "dependencies": {
+            "AutoMapper": {
+              "target": "Package",
+              "version": "[12.0.1, )"
+            },
+            "AutoMapper.Extensions.Microsoft.DependencyInjection": {
+              "target": "Package",
+              "version": "[12.0.1, )"
+            },
+            "FluentValidation": {
+              "target": "Package",
+              "version": "[11.8.0, )"
+            },
+            "FluentValidation.DependencyInjectionExtensions": {
+              "target": "Package",
+              "version": "[11.8.0, )"
+            },
+            "MediatR": {
+              "target": "Package",
+              "version": "[12.2.0, )"
+            },
+            "MediatR.Extensions.Microsoft.DependencyInjection": {
+              "target": "Package",
+              "version": "[11.1.0, )"
+            },
+            "Microsoft.AspNetCore.Http.Features": {
+              "target": "Package",
+              "version": "[5.0.17, )"
+            },
+            "Microsoft.Extensions.DependencyInjection.Abstractions": {
+              "target": "Package",
+              "version": "[9.0.4, )"
+            },
+            "Microsoft.Extensions.Logging.Abstractions": {
+              "target": "Package",
+              "version": "[9.0.4, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.202/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\Jack\\source\\repos\\sky\\BiddingManagementSystem\\BiddingManagementSystem.Domain\\BiddingManagementSystem.Domain.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\Jack\\source\\repos\\sky\\BiddingManagementSystem\\BiddingManagementSystem.Domain\\BiddingManagementSystem.Domain.csproj",
+        "projectName": "BiddingManagementSystem.Domain",
+        "projectPath": "C:\\Users\\Jack\\source\\repos\\sky\\BiddingManagementSystem\\BiddingManagementSystem.Domain\\BiddingManagementSystem.Domain.csproj",
+        "packagesPath": "C:\\Users\\Jack\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Jack\\source\\repos\\sky\\BiddingManagementSystem\\BiddingManagementSystem.Domain\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Jack\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -44,6 +146,123 @@
       "frameworks": {
         "net8.0": {
           "targetAlias": "net8.0",
+          "dependencies": {
+            "Microsoft.Extensions.DependencyInjection.Abstractions": {
+              "target": "Package",
+              "version": "[9.0.4, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.202/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\Jack\\source\\repos\\sky\\BiddingManagementSystem\\BiddingManagementSystem.Infrastructure\\BiddingManagementSystem.Infrastructure.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\Jack\\source\\repos\\sky\\BiddingManagementSystem\\BiddingManagementSystem.Infrastructure\\BiddingManagementSystem.Infrastructure.csproj",
+        "projectName": "BiddingManagementSystem.Infrastructure",
+        "projectPath": "C:\\Users\\Jack\\source\\repos\\sky\\BiddingManagementSystem\\BiddingManagementSystem.Infrastructure\\BiddingManagementSystem.Infrastructure.csproj",
+        "packagesPath": "C:\\Users\\Jack\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Jack\\source\\repos\\sky\\BiddingManagementSystem\\BiddingManagementSystem.Infrastructure\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\Jack\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0": {
+            "targetAlias": "net8.0",
+            "projectReferences": {
+              "C:\\Users\\Jack\\source\\repos\\sky\\BiddingManagementSystem\\BiddingManagementSystem.Application\\BiddingManagementSystem.Application.csproj": {
+                "projectPath": "C:\\Users\\Jack\\source\\repos\\sky\\BiddingManagementSystem\\BiddingManagementSystem.Application\\BiddingManagementSystem.Application.csproj"
+              },
+              "C:\\Users\\Jack\\source\\repos\\sky\\BiddingManagementSystem\\BiddingManagementSystem.Domain\\BiddingManagementSystem.Domain.csproj": {
+                "projectPath": "C:\\Users\\Jack\\source\\repos\\sky\\BiddingManagementSystem\\BiddingManagementSystem.Domain\\BiddingManagementSystem.Domain.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        }
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "dependencies": {
+            "Microsoft.AspNetCore.Authentication.JwtBearer": {
+              "target": "Package",
+              "version": "[8.0.0, )"
+            },
+            "Microsoft.AspNetCore.Identity": {
+              "target": "Package",
+              "version": "[2.2.0, )"
+            },
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[8.0.0, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[8.0.0, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[8.0.0, )"
+            },
+            "Microsoft.Extensions.Configuration.Abstractions": {
+              "target": "Package",
+              "version": "[9.0.4, )"
+            },
+            "Microsoft.Extensions.Configuration.Binder": {
+              "target": "Package",
+              "version": "[9.0.4, )"
+            },
+            "Microsoft.Extensions.DependencyInjection.Abstractions": {
+              "target": "Package",
+              "version": "[9.0.4, )"
+            },
+            "Microsoft.Extensions.Hosting.Abstractions": {
+              "target": "Package",
+              "version": "[9.0.4, )"
+            },
+            "Microsoft.Extensions.Options": {
+              "target": "Package",
+              "version": "[9.0.4, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",

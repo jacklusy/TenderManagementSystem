@@ -7,6 +7,7 @@ using BiddingManagementSystem.Application.Features.Users.Queries;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using BiddingManagementSystem.Application.DTOs.Users;
 
 namespace BiddingManagementSystem.API.Controllers
 {
